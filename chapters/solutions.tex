@@ -1,0 +1,204 @@
+
+{\justifying
+	\chapterimage{png/web_app.png}{3cm}
+	\chapter{Solutions to Excerises}
+	\epigraph{Any application that can be written in JavaScript will eventually be written in JavaScript. {--- \textup{Jeff Atwood}}}
+
+
+
+\paragraph{Solution 1}
+Find the number that are greater than 10. See page \pageref{ex:1}
+
+
+\hfill \break
+
+To filter an array for elements greater than 10 in JavaScript, you can use the Array.prototype.filter() method. This method takes a callback function as its argument, and returns a new array with only the elements from the original array that satisfy the condition specified by the callback function.
+
+Here is an example of using Array.prototype.filter() to filter an array for elements greater than 10:  \label{sol:1}
+\begin{lstlisting}
+const numbers = [5, 10, 15, 20, 25];
+// find value of greaterThan10
+// const greaterThan10 = []
+console.log(greaterThan10); // [15, 20, 25]
+\end{lstlisting}
+
+In this example, we have an array of numbers called numbers. We call the filter() method on numbers and pass a callback function that checks if the current element (num) is greater than 10. The filter() method will return a new array containing only the elements from numbers that are greater than 10 (in this case, 15, 20, and 25).
+
+The filter() method is a higher-order function, which means it takes a function as its input and returns a new function as its output. The callback function that you pass to filter() must take an element from the array as its input and return a Boolean.
+
+\paragraph{Solution 2}
+See page \pageref{ex:2}
+The output of the console.group is
+```
+My Group
+    This is the first log in my group
+    This is the second log in my group
+undefined
+```
+I am guessing you missed the undefined log at the end, it happens to the best of us, this is why its important to have a compiler on hand to see what the output will be.
+\label{sol:2}
+
+
+\label{sol:3}
+\paragraph{Solution 3}
+
+See page \pageref{ex:3} for details
+
+
+To use the fetch function to send a message to a Discord webhook, you will need to do the following:
+\begin{itemize}
+\item Get the URL of the webhook from your Discord server settings. The URL will look something like this: \begin{verbatim}
+https://discordapp.com/api/webhooks/<webhook_id>/<webhook_token>.
+\end{verbatim}
+
+\item Use the fetch function to send a POST request to the webhook URL. The fetch function takes the URL of the webhook as its first argument, and an object containing the request options (such as the HTTP method and the body of the request) as its second argument.
+
+\item In the request options, specify the HTTP method as POST and the body of the request as a JSON object containing the message you want to send to the webhook. For example, the body of the request might look like this:
+
+\begin{verbatim}
+{
+  "content": "This is a message sent via a Discord 
+  webhook using the fetch function."
+}
+\end{verbatim}
+\item In the fetch function's promise, handle the response from the server to ensure that the message was sent successfully. For example, you might check the HTTP status code of the response to make sure it is in the 200 range, which indicates a successful response.
+
+Here is an example of using the fetch function to send a message to a Discord webhook:
+
+\begin{lstlisting}[language=Javascript, caption=Post to webhook url using fetch]
+// The URL of the webhook
+const webhookUrl = "https://discordapp.com/api/webhooks/<webhook_id>/<webhook_token>";
+
+// The body of the request
+const requestBody = {
+  "content": "This is a message sent via a Discord webhook using the fetch function."
+};
+
+// Use fetch to send a POST request to the webhook
+fetch(webhookUrl, {
+  method: "POST",
+  body: JSON.stringify(requestBody)
+})
+  .then(response => {
+    // Check the HTTP status code of the response
+    if (response.status >= 200 && response.status < 300) {
+      console.log("Message sent successfully!");
+    } else {
+      console.error("Error sending message:", response.statusText);
+    }
+  })
+  .catch(error => {
+    console.error("Error sending message:", error);
+  });
+
+\end{lstlisting}
+
+In order to implement this in node you may have to install node-fetch.
+\end{itemize}
+
+\label{sol:4}
+\paragraph{Solution 4}
+
+See page \pageref{ex:4} for the question
+
+To use the fetch function to make a request to the PokeAPI and parse the results, you can do the following:
+
+\begin{itemize}
+\item Define a function that takes the URL of the API endpoint as an argument. In this case, the URL would be https://pokeapi.co/api/v2/item/1.
+
+\item Use the fetch function to make a GET request to the API endpoint. The fetch function takes the URL of the endpoint as its first argument, and an object containing the request options (such as the HTTP method and any request headers) as its second argument.
+
+\item In the fetch function's promise, use the json method of the response object to parse the JSON data returned by the API. This will return a JavaScript object containing the data from the API.
+
+\item Access the properties of the parsed data object to get the information you need. For example, if you want to get the name of the item, you could access the name property of the data object.
+\end{itemize}
+Here is an example of using the fetch function to make a request to the PokeAPI and parse the results:
+\begin{lstlisting}[language=Javascript, caption=Fetch data from Pokeapi]
+// Define a function that makes a request to the PokeAPI
+function getItem(url) {
+  // Use fetch to make a GET request to the API endpoint
+  return fetch(url, {
+    method: "GET"
+  })
+    .then(response => {
+      // Parse the JSON data returned by the API
+      return response.json();
+    })
+    .then(data => {
+      // Access the properties of the data object
+      console.log("Item name:", data.name);
+      console.log("Item description:", data.description);
+      // Return the data object
+      return data;
+    });
+}
+
+// Call the function to make the request
+getItem("https://pokeapi.co/api/v2/item/1").then(data => {
+  // Do something with the data
+  console.log("Item data:", data);
+});
+\end{lstlisting}
+
+Afterwards we can parse the result to grab the url to the sprite for the master ball.
+
+\begin{lstlisting}[language=Javascript, caption="parsing result from pokeapi]
+getItem("https://pokeapi.co/api/v2/item/1").then(data => {
+  // Do something with the data
+  console.group("POKEAPI data")
+  console.log("Item data:", data);
+  const masterBall= data.sprites.default;
+  console.log("masterBall", masterBall);
+  console.groupEnd();
+});
+\end{lstlisting}
+
+
+\paragraph{Solution 5}
+
+Here is an example of a Dockerfile that uses Node 16-LTS, installs packages with Yarn, and starts the server with yarn start:
+\begin{lstlisting}[language=docker]
+# Use the Node 16-LTS image as the base image
+FROM node:16-lts
+
+# Set the working directory to the app directory
+WORKDIR /app
+
+# Copy the package.json and yarn.lock files to the app directory
+COPY package.json yarn.lock ./
+
+# Install the app dependencies with Yarn
+RUN yarn install
+
+# Copy the rest of the app's source code to the app directory
+COPY . .
+
+# Expose the app's port
+EXPOSE 3000
+
+# Start the app with Yarn
+CMD ["yarn", "start"]
+\end{lstlisting}
+
+This Dockerfile does the following:
+\begin{itemize}
+\item Uses the node:16-lts image as the base image
+\item  Sets the working directory to the /app directory
+\item  Copies the package.json and yarn.lock files to the /app directory
+\item Installs the app dependencies with Yarn
+\item Copies the rest of the app's source code to the /app directory
+\item Exposes the app's port (3000 in this example)
+\item  Starts the app with yarn start
+\end{itemize}
+Once you have created this Dockerfile, you can build a Docker image by running the docker build command and specifying the path to the Dockerfile. For example:
+
+\begin{verbatim}
+docker build -t my-app .
+\end{verbatim}
+
+This will create a Docker image named my-app based on the instructions in the Dockerfile. You can then run this image as a container using the docker run command:
+See page \pageref{ex:5} for the question
+ }
+ 
+
+ \cleanalldata

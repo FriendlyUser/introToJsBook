@@ -1,0 +1,811 @@
+
+
+{\justifying
+	\chapterimage{png/web_app.png}{3cm}
+	\chapter{Introduction to Javascript}
+	\epigraph{Any application that can be written in JavaScript will eventually be written in JavaScript. {--- \textup{Jeff Atwood}}}
+
+\section{History of Javascript}
+JavaScript is a programming language that is commonly used to add interactive elements to websites. It is a client-side language, which means that it is executed by the user's web browser rather than on the server. JavaScript allows developers to create dynamic and interactive user experiences, such as changing the content of a web page without reloading the page, validating form input, and creating animations and games. It is commonly used in combination with HTML and CSS to create websites and web applications.
+
+
+The full history of JavaScript is as follows:
+
+\begin{enumerate}
+\item 1995: JavaScript was developed by Netscape Communications Corporation as a programming language for web browsers. It was initially named LiveScript, but was later renamed to JavaScript to capitalize on the popularity of the Java programming language.
+
+\item  1996: Microsoft released its own version of JavaScript, called JScript, for its Internet Explorer web browser.
+
+\item  1997: JavaScript was standardized by ECMA International, an industry organization for standardizing information and communication systems, as ECMAScript.
+
+\item  1999: ECMAScript 3, the first widely-supported version of JavaScript, was released.
+
+\item  2005: ECMAScript 5, which added many new features to JavaScript, was released.
+
+\item 2009: ECMAScript 5.1, which was a minor update to ECMAScript 5, was released.
+
+\item  2015: ECMAScript 6 (also known as ECMAScript 2015), which added many new features and improvements to JavaScript, was released.
+
+
+\end{enumerate}
+Today, JavaScript continues to be a popular and widely-used programming language for web development.
+\subsection{Why use Javascript}
+
+There are several advantages of using JavaScript for full stack development:
+
+\begin{enumerate}
+\item Flexibility: JavaScript is a versatile language that can be used for both front-end and back-end development, allowing for a seamless development process and a cohesive codebase.
+
+\item  Popularity: JavaScript is one of the most popular programming languages, with a large and active community of developers who constantly contribute new tools and libraries to improve the language.
+
+\item  Ease of use: JavaScript is a relatively easy language to learn, even for those with little to no programming experience. This makes it a great choice for developers who want to learn how to build full stack applications.
+
+\item  Speed: JavaScript is a fast language that can execute code quickly, allowing for faster development and better performance in web applications.
+
+\item Compatibility: JavaScript is supported by all major web browsers, so web applications built with JavaScript will be compatible with a wide range of devices and platforms.
+
+\item  Rich ecosystem: JavaScript has a rich ecosystem of frameworks, libraries, and tools that make it easier to build and maintain full stack applications. This includes popular frameworks such as React, Angular, and Vue.js for the front-end, and Node.js for the back-end.
+\end{enumerate}
+
+
+JavaScript is a very popular and widely-used programming language, so knowing JavaScript is a valuable skill for a software developer to have. JavaScript is often used for building web applications and creating interactive user experiences on the front end (i.e., the client-side) of a web application.
+
+In addition to being used for front-end web development, JavaScript is also commonly used for server-side development using runtime environments like Node.js. This allows JavaScript to be used for full-stack development, which can be beneficial for developers who want to be able to work on both the front-end and back-end of a web application.
+
+Overall, knowing JavaScript can be very useful for a software developer, and it is a skill that is in high demand in the job market. However, the importance of any particular language or technology can vary depending on the specific job and industry, so it's always a good idea to keep up with the latest trends and developments in the field.
+
+\subsection{Getting started with Javascript}
+JavaScript is a client-side language, which means that it is executed by the user's web browser rather than on the server. Therefore, there is no need to install JavaScript on your computer.
+
+To use JavaScript in a web page, you simply need to include the JavaScript code in the HTML code of the page. This can be done by adding a \lstinline[language=Javascript]{<script>}
+tag in the \lstinline[language=HTML]{<head>} or \lstinline[language=Javascript]{<body>} section of the HTML code, and then placing the JavaScript code inside the \lstinline[language=Javascript]{<script>} tag. For example:
+
+\begin{lstlisting}[language=Javascript, numbers=none, caption=sample script tag]
+<script>
+    // JavaScript code goes here
+</script>
+\end{lstlisting}
+
+Alternatively, you can also include a reference to a separate JavaScript file in the <head> or <body> section of the HTML code using the src attribute of the <script> tag. For example:
+
+\begin{verbatim}
+<script src="script.js"></script>
+\end{verbatim}
+This will include the JavaScript code from the script.js file in the web page.
+
+To test your JavaScript code, you can simply open the web page in a web browser and use the browser's developer tools to view the output of the code. Most modern web browsers, such as Google Chrome and Mozilla Firefox, have developer tools built-in that allow you to view and debug your JavaScript code.
+
+% talk about types in javascript here
+
+\subsubsection{What is HTML}
+
+
+\subsection{Getting started with Node.js}
+
+\indextextit{Node.js} is an open-source, cross-platform, runtime environment that allows you to execute JavaScript code outside of a browser. It provides a rich set of built-in modules that simplify the development of web applications, and it has a large and active community of users who contribute additional modules to the npm (Node Package Manager) repository.
+
+\indextextit{Node.js} is often used to build server-side applications, but it can also be used for command-line tools, desktop applications, and more. It is based on the JavaScript V8 engine, which is the same engine used in the Google Chrome web browser, and it allows you to write code in JavaScript that can access the full range of system-level APIs and libraries.
+
+One of the key advantages of Node.js is its event-driven, non-blocking I/O model, which makes it highly scalable and efficient. This makes it well-suited for building real-time, data-intensive applications that can handle large numbers of concurrent connections \cite{whyNode}.
+
+Overall, \indextextit{Node.js} is a powerful and versatile tool that can be used for a wide range of applications. For details on how to install node view \fref{chap:node}
+
+\section{Javascript Fundamentals}
+
+There are several fundamental concepts in JavaScript that are important for a beginner to understand. These include:
+
+\begin{enumerate}
+\item Variables: Variables are containers for storing data values. In JavaScript, you use the \lstinline[language=Javascript]{var} keyword to declare a variable and assign it a value using the = operator. For example:
+
+\begin{lstlisting}[language=Javascript, nolol, numbers=none]
+var x = 5;
+\end{lstlisting}
+\item Data types: JavaScript has several data types that can be used to represent different types of data. These include numbers, strings (text), booleans (true/false values), arrays, and objects. The type of a variable is determined by the data it holds.
+\item Operators: Operators are used to perform operations on data values. For example, the + operator is used to add two numbers together, while the === operator is used to check if two values are equal.
+\item Functions: Functions are blocks of code that can be called from other parts of your program. In JavaScript, you define a function using the function keyword, followed by the function name and a set of parentheses that may contain parameters. For example:
+\begin{lstlisting}[language=Javascript, numbers=none, caption=sample function]
+function sayHello(name) {
+  console.log("Hello, " + name);
+}
+\end{lstlisting}
+\item Control flow: Control flow refers to the order in which the statements in a program are executed. JavaScript uses conditional statements (e.g., if, else, switch) and loops (e.g., for, while) to control the flow of a program.
+\item Objects: As mentioned earlier, objects are collections of properties that have values of various data types. In JavaScript, you can create your own objects and add, remove, or modify their properties.
+\end{enumerate}
+
+In JavaScript, \indextextit{var}, \indextextit{let}, and \indextextit{const} are three different ways to declare variables.
+
+var is the traditional way to declare variables in JavaScript. It has been around since the early days of the language and is still used in many programs. The main disadvantage of using var is that it is function-scoped, which means that a variable declared with var inside a function is accessible outside of that function. This can lead to unexpected behavior and can make it difficult to understand and debug your code.
+
+\indextextit{let} is a newer way to declare variables in JavaScript. It was introduced in the ES6 (ECMAScript 6) version of the language and is now the recommended way to declare variables in most cases. let is block-scoped, which means that a variable declared with let inside a block of code (e.g. inside a for loop or an if statement) is only accessible within that block. This makes let more predictable and easier to understand than var.
+
+\indextextit{const} is also a new way to declare variables in JavaScript. It was also introduced in ES6 and is similar to let, but with one key difference: a variable declared with const cannot be reassigned. In other words, once you assign a value to a const variable, you cannot change that value later on. This makes const a good choice for variables that you don't want to change, such as constant values or configuration settings.
+
+In summary, var is the traditional way to declare variables in JavaScript, but it has some limitations and can lead to unpredictable behavior. let and const are newer ways to declare variables that are more predictable and easier to understand. In most cases, it is recommended to use let unless you have a specific reason to use var or \indextextit{const}.
+
+
+These are just a few of the fundamental concepts in JavaScript. To learn more, I would recommend reading some tutorials available at mdn \cite{mdnJs}.
+
+
+\subsection{Javascript Objects}
+
+In JavaScript, an object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method. In addition to objects that are predefined in the browser, you can define your own objects.
+
+Here is an example of a simple object:
+
+\begin{lstlisting}[language=Javascript, nolol, numbers=none]
+var person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+\end{lstlisting}
+
+In this example, person is an object that has four properties: firstName, lastName, age, and eyeColor. The values of these properties are "John", "Doe", 50, and "blue", respectively.
+
+You can access an object's properties in two ways: using dot notation (e.g., person.firstName) or bracket notation (e.g., person["firstName"]). In general, dot notation is preferred, but if the property name contains spaces or other special characters, you must use bracket notation.
+
+
+To use JavaScript objects, you can declare a variable and set it equal to a new object using curly braces. For example:
+\begin{lstlisting}[language=Javascript, nolol]
+var myObject = {};
+\end{lstlisting}
+
+To add properties to the object, you can use the dot notation or the bracket notation. For example:
+\begin{lstlisting}[language=Javascript, numbers=none, caption=Dot notiation in javascript]
+// Dot notation
+myObject.name = "John Doe";
+myObject.age = 30;
+
+// Bracket notation
+myObject["gender"] = "male";
+\end{lstlisting}
+
+To access the properties of an object, you can use the same dot notation or bracket notation. For example:
+\begin{lstlisting}[language=Javascript, nolol, numbers=none]
+console.log(myObject.name); // Output: "John Doe"
+console.log(myObject["age"]); // Output: 30
+\end{lstlisting}
+
+You can also use the for...in loop to iterate over the properties of an object and access their values. For example:
+\begin{lstlisting}[language=Javascript, numbers=none]
+for (var key in myObject) {
+console.log(key + ": " + myObject[key]);
+}
+
+// Output:
+// name: John Doe
+// age: 30
+// gender: male
+\end{lstlisting}
+
+Additionally, you can use the Object.keys() method to get an array of the keys in an object, and the Object.values() method to get an array of the values in an object. For example:
+\begin{lstlisting}[language=Javascript, nolol]
+console.log(Object.keys(myObject)); // Output: ["name", "age", "gender"]
+console.log(Object.values(myObject)); // Output: ["John Doe", 30, "male"]
+\end{lstlisting}
+
+JavaScript objects are a useful data structure for storing and organizing data, and are commonly used in web development.
+
+
+\subsection{Arrays in Javascript}
+
+\paragraph{What is an array?}
+An array is a data structure that allows you to store a collection of elements in a single variable. This can be useful in many situations, such as when you want to store a list of items or when you need to store data in a structured manner.
+
+Here are some reasons why you might want to use an array in your code:
+
+To store a list of items: An array is a convenient way to store a list of similar items. For example, you could use an array to store a list of names, a list of numbers, or a list of other objects.
+
+To access items by index: Arrays are indexed, which means that you can access each element in the array using a numerical index. This makes it easy to retrieve specific items from the array, or to loop through all of the items in the array.
+
+To sort items: Arrays have built-in methods for sorting the items they contain. This can be useful if you need to sort a list of items alphabetically or numerically.
+
+To manipulate items: Arrays also have methods for adding, removing, and modifying the items they contain. This makes it easy to manipulate the items in the array without having to write your own code to do so.
+
+Overall, arrays are a versatile data structure that can be useful in many situations where you need to store and manipulate data. If you find yourself needing to store and manage a collection of items, an array may be the right choice for your needs.
+
+
+\paragraph{Properties of arrays in Javascript}
+
+One of the unique aspects of JavaScript arrays is that they can store elements of different data types. In many programming languages, arrays are limited to storing elements of a single data type, but in JavaScript, an array can contain elements of any type.
+
+For example, the following code creates an array that contains a number, a string, and a boolean value:
+
+\begin{lstlisting}[language=Javascript]
+var array=[4, "test", false]
+\end{lstlisting}
+
+One key difference between arrays in JavaScript and other programming languages is that JavaScript arrays are dynamic, which means that they can grow or shrink in size as needed. This is in contrast to arrays in languages like C or Java, which have a fixed size and must be explicitly resized if the number of elements exceeds the size of the array.
+
+
+
+Below is an example highlighting what you can do with arrays in javascript.
+
+Some of the most commonly used functions of arrays in JavaScript include the following:
+\begin{itemize}
+\item push(): Adds one or more elements to the end of an array.
+\item  pop(): Removes the last element from an array and returns it.
+\item  shift(): Removes the first element from an array and returns it.
+\item  unshift(): Adds one or more elements to the beginning of an array.
+\item  indexOf(): Returns the index of the first occurrence of a given element in an array, or -1 if the element is not present in the array.
+\item join(): Joins all elements of an array into a string and returns the resulting string.
+\item slice(): Extracts a portion of an array and returns a new array.
+\item splice(): Removes elements from an array and/or adds new elements to an array.
+\item  sort(): Sorts the elements of an array in ascending or descending order.
+\end{itemize}
+These are just a few examples of the many functions available for working with arrays in JavaScript. Other commonly used array functions include map(), filter(), reduce(), forEach(), and many more. The specific functions you use will depend on your specific needs and the tasks you are trying to accomplish with your arrays.
+
+\begin{lstlisting}[language=Javascript, caption=Javascript array example]
+Here is an example of using an array in javascript:
+
+// Declare an array with 3 elements
+var myArray = [1, 2, 3];
+
+// Output the first element in the array
+console.log(myArray[0]); // Output: 1
+
+// Add a new element to the end of the array
+myArray.push(4);
+
+// Output the length of the array
+console.log(myArray.length); // Output: 4
+
+// Use the slice() method to create a new array with the last two elements of the original array
+var lastTwo = myArray.slice(myArray.length-2);
+
+// Output the new array
+console.log(lastTwo); // Output: [3, 4]
+
+// Use the map() method to create a new array with the square of each element in the original array
+var squares = myArray.map(x => x*x);
+
+// Output the new array
+console.log(squares); // Output: [1, 4, 9, 16]
+
+// Use the filter() method to create a new array with only the even elements in the original array
+var evens = myArray.filter(x => x % 2 === 0);
+
+// Output the new array
+console.log(evens); // Output: [2, 4]
+
+// Use the reduce() method to sum all of the elements in the original array
+var sum = myArray.reduce((total, current) => total + current);
+
+// Output the sum
+console.log(sum); // Output: 10
+
+// Use the sort() method to sort the elements in the original array in ascending order
+myArray.sort((a, b) => a - b);
+
+// Output the sorted array
+console.log(myArray); // Output: [1, 2, 3, 4]
+
+// Use the reverse() method to reverse the order of the elements in the original array
+myArray.reverse();
+
+// Output the reversed array
+console.log(myArray); // Output: [4, 3, 2, 1]
+\end{lstlisting}
+
+Here is an example of using the reduce() function to reduce an array of objects in JavaScript:
+
+\begin{lstlisting}[language=Javascript, caption=Example of reducing an array in javascript]
+const data = [
+  {
+    name: "John Doe",
+    age: 34,
+    city: "New York"
+  },
+  {
+    name: "Jane Smith",
+    age: 29,
+    city: "Los Angeles"
+  },
+  {
+    name: "Bob Johnson",
+    age: 42,
+    city: "Chicago"
+  }
+];
+
+const totalAge = data.reduce((total, person) => {
+  return total + person.age;
+}, 0);
+
+console.log(totalAge);  // Output: 105
+
+\end{lstlisting}
+In this example, we have an array of objects representing people, with each object containing a name, age, and city. We use the reduce() function to iterate over the array of objects and calculate the total age of all the people. The reduce() function takes a callback function and an initial value (in this case, 0) as arguments, and applies the callback function to each element in the array. In this case, the callback function adds the age property of each person object to the total variable, which is initially set to 0. The final result of the reduce() function is the total age of all the people in the array.
+
+This is just one example of how the reduce() function can be used to reduce an array of objects in JavaScript. The specific implementation will depend on the data you are working with and the calculation you want to perform.
+
+
+
+\subsection{Control Flow in Javascript}
+
+Control flow is a fundamental concept in programming that involves specifying the order in which different parts of a program are executed. In JavaScript, control flow is typically implemented using control flow statements such as if...else, switch, for, and while loops.
+
+Control flow is important because it allows you to create programs that can make decisions and execute different code based on certain conditions. This is essential for creating programs that can adapt to different inputs and scenarios, and for performing complex tasks that require multiple steps or iterations.
+
+Here are a few examples of why you might use control flow in JavaScript:
+\begin{enumerate}
+    \item To check the value of a variable and execute different code depending on its value. For example, you might use an if...else statement to check the value of a user's input and respond differently depending on whether the input is valid or not.
+\item To execute the same code multiple times with different values. For example, you might use a for loop to iterate over a list of items and perform the same operation on each item in the list.
+\item To execute code repeatedly until a certain condition is met. For example, you might use a while loop to keep checking the value of a variable until it reaches a certain threshold, at which point the loop will stop.
+\end{enumerate}
+
+Here is an example of using a switch statement in JavaScript:
+
+\begin{lstlisting}[language=Javascript, caption=Example switch statement in Javascript]
+const day = "Saturday";
+
+switch (day) {
+  case "Monday":
+    console.log("Today is Monday");
+    break;
+  case "Tuesday":
+    console.log("Today is Tuesday");
+    break;
+  case "Wednesday":
+    console.log("Today is Wednesday");
+    break;
+  case "Thursday":
+    console.log("Today is Thursday");
+    break;
+  case "Friday":
+    console.log("Today is Friday");
+    break;
+  case "Saturday":
+    console.log("Today is Saturday");
+    break;
+  case "Sunday":
+    console.log("Today is Sunday");
+    break;
+  default:
+    console.log("Invalid day");
+}
+
+// Output: Today is Saturday
+
+\end{lstlisting}
+In this example, we have a variable day that contains the current day of the week. We use a switch statement to check the value of day and execute different code depending on the day of the week. The switch statement takes a value as its input and compares it to the case labels inside the switch block. If the value matches one of the case labels, the code associated with that case label is executed. If the value does not match any of the case labels, the code associated with the default label is executed (if it is present).
+
+In this example, the value of day is "Saturday", so the code inside the case "Saturday" block is executed and the message "Today is Saturday" is logged to the console. The break statement at the end of each case block is used to prevent the code from "falling through" to the next case block. If the break statement was not present, the code inside all the case blocks after the matching case block would also be executed.
+
+This is just one example of how a switch statement can be used in JavaScript. The specific implementation will depend on your specific needs and the values you are working with.
+
+
+Here is an example of using an if...else statement in JavaScript:
+
+\begin{lstlisting}[language=Javascript, caption=Example if else statement]
+const x = 5;
+
+if (x > 10) {
+  console.log("x is greater than 10");
+} else {
+  console.log("x is less than or equal to 10");
+}
+
+// Output: x is less than or equal to 10
+
+\end{lstlisting}
+
+In this example, we have a variable x with the value 5. We use an if...else statement to check the value of x and execute different code depending on whether x is greater than 10 or not. The if part of the if...else statement specifies a condition (in this case, x > 10) that is evaluated to either true or false. If the condition is true, the code inside the if block is executed. If the condition is false, the code inside the else block is executed.
+
+In this example, the value of x is 5, which is less than or equal to 10, so the condition x > 10 is false and the code inside the else block is executed. This logs the message "x is less than or equal to 10" to the console.
+
+This is just one example of how an if...else statement can be used in JavaScript. The specific implementation will depend on your specific needs and the values you are working with.
+
+Here is an example of using a for loop in JavaScript:
+
+\begin{lstlisting}[language=Javascript, caption=Example of for loop in Javascript]
+const numbers = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}
+
+// Output:
+// 1
+// 2
+// 3
+// 4
+// 5
+
+\end{lstlisting}
+In this example, we have an array of numbers called numbers. We use a for loop to iterate over the array and print each number to the console. The for loop takes three parts: an initialization (let i = 0), a condition (i < numbers.length), and an update (i++). The initialization part is executed once when the loop starts, and sets the initial value of the loop variable (i in this case). The condition is evaluated before each iteration of the loop, and the loop continues as long as the condition is true. The update is executed after each iteration of the loop, and is used to update the value of the loop variable.
+
+In this example, the initialization part sets the initial value of i to 0. The condition part checks if i is less than the length of the numbers array (which is 5 in this case). As long as i is less than 5, the loop will continue to run. The update part increments the value of i by 1 after each iteration of the loop.
+
+Inside the loop body, we use the current value of i as the index of the numbers array to access and log the corresponding element to the console. In the first iteration, i is 0, so the element at index 0 (which is 1) is logged to the console. In the second iteration, i is 1, so the element at index 1 (which is 2) is logged to the console, and so on.
+
+This is just one example of how a for loop can be used in JavaScript. The specific implementation will depend on your specific needs and the data you are working with.
+
+Here is an example of using a while loop in JavaScript:
+\begin{lstlisting}[language=Javascript, caption=Example of while loop in Javascript]
+let x = 5;
+
+while (x > 0) {
+  console.log(x);
+  x--;
+}
+
+// Output:
+// 5
+// 4
+// 3
+// 2
+// 1
+
+\end{lstlisting}
+In this example, we have a variable x with the initial value 5. We use a while loop to iterate as long as x is greater than 0, and print the value of x to the console on each iteration. The while loop takes a condition as its input (in this case, x > 0), and continues to run as long as the condition is true.
+
+Inside the loop body, we first log the current value of x to the console using console.log(). Then we use the x-- statement to decrement the value of x by 1. This is important because the value of x must change in some way on each iteration of the loop, or the loop will run indefinitely (i.e. it will create an infinite loop).
+
+In this example, the loop starts with x equal to 5. The condition x > 0 is true, so the code inside the loop body is executed and the value of x (5) is logged to the console. Then the value of x is decremented by 1, so x is now equal to 4. The condition x > 0 is still true, so the code inside the loop body is executed again and the new value of x (4) is logged to the console. This process continues until the value of x is 0, at which point the condition x > 0 is false and the loop stops.
+
+This is just one example of how a while loop can be used in JavaScript. The specific implementation will depend on your specific needs and the data you are working with.
+
+Overall, control flow is a crucial aspect of programming in JavaScript and other languages. It allows you to create programs that are more flexible, adaptable, and powerful, and is an essential tool for solving complex problems and performing complex tasks.
+
+\subsection{Truthy and Falsy values}
+In JavaScript, a boolean value is a value that is either true or false. You can convert a value of any other type to a boolean value using the Boolean() function.
+
+Here is an example of how to use the Boolean() function to convert a value to a boolean:
+
+\begin{lstlisting}[language=Javascript, nolol]
+var myValue = 'hello';
+var myBoolean = Boolean(myValue);
+\end{lstlisting}
+
+In this example, the string value "hello" is converted to a boolean value using the Boolean() function. The resulting boolean value will be true, because the string "hello" is a non-empty value.
+
+You can also use the logical operators !, \&\&, and || to convert a value to a boolean. For example, the ! operator will convert a value to false if it is true, and true if it is false. The \&\& and || operators will convert a value to true if it is truthy (i.e. if it evaluates to true when used in a boolean context), and false if it is falsy (i.e. if it evaluates to false when used in a boolean context).
+
+Here are some examples of using the !, \&\&, and || operators to convert values to booleans:
+
+\begin{lstlisting}[language=Javascript, caption=Boolean validation]
+var myValue = 'hello';
+var myBoolean1 = !myValue;  // myBoolean1 is false
+var myBoolean2 = myValue && true;  // myBoolean2 is true
+var myBoolean3 = myValue || false;  // myBoolean3 is true
+\end{lstlisting}
+
+In these examples, the ! operator converts the value of myValue to false because it is non-empty. The \&\& operator converts the value of myValue to true because it is truthy. And the || operator also converts the value of myValue to true because it is truthy.
+
+In JavaScript, a truthy value is a value that is considered to be true when used in a boolean context. This means that if you use a truthy value in a conditional statement, such as an if statement, the condition will evaluate to true.
+
+Conversely, a falsy value is a value that is considered to be false when used in a boolean context. If you use a falsy value in a conditional statement, the condition will evaluate to false.
+
+Here are some examples of truthy and falsy values in JavaScript:
+\begin{itemize}
+\item true is a truthy value.
+\item false is a falsy value.
+\item The number 0 is a falsy value.
+\item The empty string '' is a falsy value.
+\item The null value is a falsy value.
+\item The undefined value is a falsy value.
+\end{itemize}
+In JavaScript, there are six falsy values: false, 0, '', null, undefined, and NaN (not a number). All other values are truthy, including non-empty strings, numbers, and objects \cite{falsyValues}.
+
+You can use the Boolean() function to convert a value to a boolean and determine whether it is truthy or falsy. For example:
+
+\begin{lstlisting}[language=Javascript, nolol]
+var myValue = 'hello';
+var myBoolean = Boolean(myValue);  // myBoolean is true
+\end{lstlisting}
+
+In this example, the string 'hello' is a truthy value, so the Boolean() function returns true when called on myValue. You can also use the logical operators !, \&\&, and || to convert a value to a boolean and determine whether it is truthy or falsy. For example:
+
+
+\section{HTML and CSS}
+
+
+HTML, which stands for Hypertext Markup Language, is a language used to create the structure and content of a web page. It is the standard markup language for creating web pages and web applications.
+
+HTML consists of a series of elements that are used to define the different parts of a web page, such as the text, images, headings, links, and other content. These elements are represented by tags, which are enclosed in angle brackets and typically come in pairs, with an opening and closing tag.
+
+For example, the <h1> tag is used to create a level 1 heading, and the <p> tag is used to create a paragraph. The following HTML code creates a page with a heading and a paragraph:
+
+\begin{lstlisting}[language=Javascript, caption=Heading and Paragraph tag]
+<h1>My page</h1>
+<p>This is my page.</p>
+\end{lstlisting}
+
+HTML is typically used in conjunction with other languages, such as CSS (Cascading Style Sheets) and JavaScript, to create the complete user interface of a web page. These languages are used to define the look and behavior of the page, respectively.
+
+HTML is a fundamental technology of the World Wide Web, and is supported by all modern web browsers. It is used to create and structure the content of millions of web pages on the internet.
+
+There are many different HTML elements that are commonly used to create the structure and content of a web page. Some of the most common HTML elements are:
+\begin{itemize}
+\item <h1> - <h6>: These elements are used to create headings of different levels. The <h1> element is the main heading of a page, and the <h6> element is the lowest level heading.
+\item <p>: This element is used to create a paragraph of text.
+\item <a>: This element is used to create a hyperlink to another web page or to a specific location on the current page.
+\item <img>: This element is used to embed an image on a web page.
+\item <div>: This element is used to create a container for other HTML elements, and is often used to group elements together and apply styles to them.
+\item <form>: This element is used to create a form that allows users to enter data, which can then be submitted to a server for processing.
+\item <input>: This element is used to create various types of input fields, such as text boxes, checkboxes, and radio buttons, within a <form> element.
+\item <button>: This element is used to create a button that can be clicked by the user to perform an action, such as submitting a form or triggering a JavaScript function.
+\item <table>: This element is used to create a table to display data in a grid of rows and columns.
+\item <ul>: This element is used to create an unordered list, which is a list of items that are not presented in a specific order.
+\item <ol>: This element is used to create an ordered list, which is a list of items that are presented in a specific order, such as a numbered list.
+\item <li>: This element is used to create a list item within a <ul> or <ol> element.
+These are just some of the many common HTML elements that are used to create the structure and content of a web page. There are many other elements that are used for specific purposes, such as creating video or audio players, or for adding semantic meaning to the page.
+\end{itemize}
+
+
+\subsection{CSS}
+
+CSS, or Cascading Style Sheets, is a stylesheet language used for describing the look and formatting of a document written in a markup language. It is most commonly used to style web pages written in HTML and XHTML, but can also be used with other markup languages like SVG.
+
+CSS allows you to define the styles for elements in a document, such as the colors, fonts, and layout, and apply those styles consistently across multiple pages or elements. This makes it possible to separate the content of a document from its formatting, allowing you to easily change the look and feel of a website without having to modify the content of the pages.
+
+CSS uses a set of rules, called "selectors," to apply styles to specific elements in a document. These rules specify which elements the styles should be applied to, and can be based on the element's type, id, class, or other attributes.
+
+For example, a CSS rule might look like this:
+
+\begin{lstlisting}[language=Javascript, nolol]
+h1 {
+  color: blue;
+  font-size: 24px;
+}
+\end{lstlisting}
+
+In this example, the h1 selector is used to apply the color and font-size styles to all <h1> elements in the document. The styles are specified as a list of properties and values, separated by colons, and are enclosed in curly braces.
+
+CSS is a powerful and versatile tool for styling and formatting documents written in markup languages. It allows you to create consistent and attractive designs for your websites, and to easily change the look and feel of those designs without modifying the content of the pages.
+
+
+In CSS, a class is a group of elements that are defined with the same style attributes. These styles can then be applied to any element on a page by simply applying the class to that element. This allows you to define the styles once and then use them multiple times on different elements, rather than having to define the styles for each element individually.
+
+On the other hand, the global scope in CSS refers to the styles that are applied to elements on a page by default. These styles are applied to all elements on the page unless they are specifically overruled by other styles, such as those defined in a class. The global scope in CSS is determined by the styles that are included in the default stylesheet for the page, as well as any additional stylesheets that are included in the page.
+
+In summary, CSS classes allow you to define styles that can be applied to multiple elements on a page, while the global scope in CSS refers to the default styles that are applied to all elements on a page.
+
+% add this here
+
+
+Inline CSS is a method of applying styles to an HTML element by using the style attribute in the HTML markup. This attribute takes a string of CSS rules that are applied directly to the element, rather than being defined in a separate stylesheet.
+
+Here is an example of inline CSS:
+\begin{lstlisting}[language=Javascript, caption=Inline CSS]
+<p style="color: red; font-size: 16px;">
+  This paragraph will be displayed in red and with a font size of 16px.
+</p>
+
+\end{lstlisting}
+
+In this example, the style attribute is used to apply the color and font-size styles directly to the <p> element. The styles are specified as a string of CSS rules, separated by semicolons.
+
+Inline CSS has some advantages over other methods of applying styles to HTML elements. For example, it allows you to apply styles to a single element without having to define them in a separate stylesheet, which can be useful when you only need to apply a small number of styles to a specific element.
+
+However, inline CSS also has some disadvantages. Because the styles are applied directly to the elements in the HTML markup, it can make the markup more difficult to read and maintain. Additionally, using inline CSS means that you have to repeat the same styles on multiple elements if you want them to have the same styling, which can be tedious and makes it difficult to update the styles consistently across the page.
+
+Overall, it is generally considered better practice to define styles in a separate stylesheet, rather than using inline CSS, unless you have a specific reason to do so.
+
+
+
+To include a CSS file in an HTML page, you can use the link element within the head section of your HTML page. The link element should have the rel attribute set to "stylesheet" and the href attribute set to the URL of the CSS file.
+
+\begin{lstlisting}[language=Javascript, caption=CSS stylesheet in html]
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+\end{lstlisting}
+
+In this example, the <link> element is used to link to a separate stylesheet file called styles.css. This file contains the CSS rules that will be applied to the elements in the HTML document.
+
+Another way to include CSS in an HTML document is to use the <style> element in the <head> of the document, like this:
+
+\begin{lstlisting}[language=Javascript, caption=CSS styles included html]
+<head>
+  <style>
+    /* CSS rules go here */
+  </style>
+</head>
+\end{lstlisting}
+
+In this example, the <style> element is used to define the CSS rules directly in the HTML document, rather than in a separate stylesheet file. This can be useful when you only have a small amount of CSS to include, or when you want to apply styles that are only used in a specific page or section of the document.
+
+Overall, the best method for including CSS in an HTML document depends on the specific needs of your project. Using a separate stylesheet allows you to keep your CSS rules in a separate file, which can make them easier to maintain and update. However, using the <style> element can be useful when you only have a small amount of CSS to include, or when you want to apply styles that are specific to a single page or section of the document.
+
+Once you have included your CSS file in your HTML page, the styles will be applied to the page when it is loaded in a web browser. You can then modify the styles in the CSS file and refresh the page to see the changes.
+
+\begin{lstlisting}[language=Javascript, caption=Heading and Paragraph tag]
+p {
+  font-family: Arial;
+  color: #333;
+}
+\end{lstlisting}
+
+
+In this example, the p selector selects all p elements on the page, and the declaration applies the font-family and color styles to the selected elements. The font-family style sets the font of the text to Arial, and the color style sets the color of the text to a dark gray.
+
+
+Here is an example that demonstrates the difference between CSS classes and the global scope in CSS. Let's say you have a page with the following elements:
+\begin{lstlisting}[language=Javascript, nolol]
+<h1>Heading 1</h1>
+<p>Paragraph 1</p>
+<p class="highlight">Paragraph 2</p>
+<p>Paragraph 3</p>
+\end{lstlisting}
+
+In this example, the <h1> and <p> elements are not assigned to any CSS classes, so they will be styled according to the global scope. Let's say the global scope defines the following styles:
+\begin{lstlisting}[language=Javascript, nolol]
+h1 {
+  color: blue;
+  font-size: 24px;
+}
+
+p {
+  color: black;
+  font-size: 16px;
+}
+
+\end{lstlisting}
+
+In this case, the <h1> element will be displayed in blue and with a font size of 24px, and the <p> elements will be displayed in black and with a font size of 16px.
+
+Now, let's say you have defined a CSS class called highlight with the following styles:
+
+\begin{lstlisting}
+.highlight {
+  color: red;
+  font-weight: bold;
+}
+\end{lstlisting}
+
+You can apply this class to the <p> element with the class="highlight" attribute, like this:
+
+\begin{lstlisting}
+<p class="highlight">Paragraph 2</p>
+\end{lstlisting}
+
+In this case, the <p> element with the highlight class will be displayed in red and with a bold font, overriding the styles defined in the global scope. The other <p> elements on the page will still be styled according to the global scope, so they will be displayed in black and with a font size of 16px.
+
+So, in this example, the CSS class highlight allows you to define a specific set of styles that can be applied to one or more elements on the page, while the global scope defines the default styles that are applied to all elements on the page unless they are overruled by other styles.
+
+CSS is a fundamental technology of the World Wide Web, and is supported by all modern web browsers. It is used to create the visual appearance of millions of web pages on the internet.
+
+
+\section{Mixing Javascript with HTML}
+
+
+
+Here is an example of an HTML page with a button that pops out an alert when clicked: CSS, and JavaScript:
+\begin{lstlisting}[language=Javascript, caption=Alert with HTML]
+<html>
+  <head>
+    <title>Button Alert</title>
+  </head>
+  <body>
+    <button id="alert-button">Click me</button>
+    <script>
+      const alertButton = document.getElementById('alert-button');
+      alertButton.addEventListener('click', () => {
+        alert('Button clicked!');
+      });
+    </script>
+  </body>
+</html>
+
+\end{lstlisting}
+
+In this example, the HTML page contains a button element with the ID alert-button. When the user clicks the button, the addEventListener() method is used to register a click event listener that pops up an alert using the alert() function.
+
+When the user clicks the "Click me" button, the alert() function is called and a popup window appears with the message "Button clicked!". The user can then click the "OK" button to close the alert and continue using the page.
+
+
+\section{Logging in Javascript}
+In JavaScript, advanced logging typically refers to using more advanced features of the console object to log information to the console. This can include using different logging methods (such as console.warn() and console.error()), using formatting options (such as console.table()), and using console methods to group and organize log messages (such as console.group() and console.groupEnd()).
+
+Here are a few examples of advanced logging in JavaScript:
+
+\begin{itemize}
+\item Using different logging methods: The console object in JavaScript has multiple methods for logging different types of messages to the console. For example, you can use console.log() to log regular messages, console.warn() to log warning messages, and console.error() to log error messages. These methods have different visual styles in the console (e.g. warning messages are yellow and error messages are red), which can make it easier to quickly identify different types of messages.
+\begin{lstlisting}[language=Javascript, caption=Example of console.log]
+console.log("Regular message");
+console.warn("Warning message");
+console.error("Error message");
+\end{lstlisting}
+\item Using formatting options: The console object also has methods for formatting and displaying data in different ways. For example, you can use console.table() to log an array of objects as a table, console.dir() to display the properties of an object, and console.time() and console.timeEnd() to measure the time it takes to run a piece of code. These methods can make it easier to read and understand complex data, and can be useful for debugging and performance analysis.
+\begin{lstlisting}[language=Javascript, caption=Example of console table and dir]
+const data = [
+  {
+    name: "John Doe",
+    age: 34,
+    city: "New York"
+  },
+  {
+    name: "Jane Smith",
+    age: 29,
+    city: "Los Angeles"
+  },
+  {
+    name: "Bob Johnson",
+    age: 42,
+    city: "Chicago"
+  }
+];
+
+console.table(data);
+console.dir(data[0]);
+
+console.time("Time");
+// Code to measure goes here
+console.timeEnd("Time");
+\end{lstlisting}
+\item Using grouping methods: The console object also has methods for grouping and organizing log messages. For example, you can use console.group() and console.groupEnd() to create a nested group of log messages that can be expanded or collapsed in the console. This can make it easier to organize and read large numbers of log messages, and can be useful for isolating specific sections of your code for debugging or analysis.
+
+\begin{lstlisting}[language=Javascript, caption=Usage of console.group]
+console.group("Group 1");
+console.log("Message 1");
+console.log("Message 2");
+
+console.group("Group 2");
+console.log("Message 3");
+console.log("Message 4");
+console.groupEnd();
+
+console.log("Message 5");
+console.groupEnd();
+\end{lstlisting}
+In this example, we create two groups of log messages using console.group() and console.groupEnd(). The first group has the label "Group 1" and contains two log messages ("Message 1" and "Message 2"). The second group has the label "Group 2" and contains two log messages ("Message 3" and "Message 4"). The second group is nested inside the first group, so it is displayed as a sub-group in the console. The final log message ("Message 5") is not part of any group, so it is displayed at the same level as the first group in the console.
+
+When you run this code and view the browser console (Chrome), you should see the following output:
+\begin{verbatim}
+Group 1
+    Message 1
+    Message 2
+    Group 2
+        Message 3
+        Message 4
+    Message 5
+\end{verbatim}
+
+You can click on the group label (e.g. "Group 1") in the console to expand or collapse the group and show or hide the log messages inside the group. This can make it easier to read and organize large numbers of log messages, and can be useful for isolating specific sections of your code for debugging or analysis.
+
+\end{itemize}
+
+Overall using console.log() in JavaScript is important for several reasons:
+\begin{itemize}
+\item It allows you to see the output of your code as it is executed, which can be useful for debugging and understanding how your code is working.
+\item  It allows you to inspect and interact with the data in your code, which can be useful for testing and verifying that your code is working as expected.
+\item  It allows you to log messages, warnings, and errors to the console, which can be useful for tracking the progress and status of your code.
+\item It allows you to measure the performance of your code, which can be useful for identifying and optimizing bottlenecks and inefficiencies.
+\item In general, using console.log() (and the other console methods) is an essential tool for any JavaScript developer. It provides valuable information and feedback that can help you write better, more reliable, and more efficient code.
+\end{itemize}
+
+
+To test your knowledge please answer the following questions
+
+\paragraph{Question 1}
+Find the number that are greater than 10 \label{ex:1}
+\begin{lstlisting}[language=Javascript, nolol]
+const numbers = [5, 10, 15, 20, 25];
+// find value of greaterThan10
+// const greaterThan10 = []
+console.log(greaterThan10); // [15, 20, 25]
+
+\end{lstlisting}
+
+See solution 1 at page \pageref{sol:1}.
+}
+
+\paragraph{Question 2}
+
+What is the output of the following code  \label{ex:2}
+\begin{lstlisting}[nolol]
+console.group('My Group');
+console.log('This is the first log in my group');
+console.log('This is the second log in my group');
+console.groupEnd();
+\end{lstlisting}
+
+You should be able to view the output in your browser console.
+
+See solution 1 at page \pageref{sol:2}.
+
+
+\cleanalldata

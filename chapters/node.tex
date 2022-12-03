@@ -1,0 +1,249 @@
+{\justifying
+	\chapterimage{png/node.png}{3cm}
+	\chapter{Node} \label{chap:node}
+	\epigraph{JavaScript’s global scope is like a public toilet. You can’t avoid going in there, but try to limit your contact with surfaces when you do..}{--- \textup{Dmitry Baranovskiy}}
+
+To install Node.js on Windows, follow these steps:
+
+\begin{itemize}
+\item Go to the Node.js website: https://nodejs.org/
+\item Click the "Download" button to download the latest version of Node.js for Windows.
+\item Once the download is complete, run the installer and follow the on-screen instructions to install Node.js on your computer.
+\item Once the installation is complete, open a command prompt or terminal and type node -v to verify that Node.js was installed correctly and to see which version you have installed.
+\end{itemize}
+
+You can also use the following instructions to install Node.js using the Chocolatey package manager:
+
+\begin{itemize}
+\item Open a command prompt or terminal and run the following command:
+
+\begin{verbatim}
+choco install nodejs
+\end{verbatim}
+\item Once the installation is complete, type node -v to verify that Node.js was installed correctly and to see which version you have installed.
+\end{itemize}
+
+Alternatively, you can use the Windows Subsystem for Linux (WSL) to install and run Node.js on Windows. To do this, follow these steps:
+
+\begin{itemize}
+\item Enable the Windows Subsystem for Linux (WSL) feature on your computer. You can do this by opening the "Turn Windows features on or off" settings, scrolling down to the "Windows Subsystem for Linux" option, and checking the box next to it. Click "OK" to save the changes and enable WSL.
+\item Once WSL is enabled, open the Microsoft Store and search for "Linux". Select a Linux distribution, such as Ubuntu, and click "Get" to install it on your computer.
+\item Once the Linux distribution is installed, open a command prompt or terminal and type wsl to launch the Linux environment.
+\item In the Linux environment, follow the instructions for your specific distribution to install Node.js. For example, on Ubuntu, you can use the following command to install the latest version of Node.js:
+\end{itemize}
+\begin{verbatim}
+sudo apt-get install nodejs
+\end{verbatim}
+
+Once the installation is complete, you can use the node command to run Node.js in the Linux environment.
+
+
+Alternatively, you can also use a package manager like apt on Ubuntu or brew on macOS to install Node.js. For example, on Ubuntu, you can use the following commands:
+
+\begin{verbatim}
+sudo apt update
+sudo apt install nodejs
+\end{verbatim}
+
+On macOS, you can use the following commands:
+\begin{verbatim}
+brew update
+brew install node
+\end{verbatim}
+
+These methods can provide additional benefits, such as automatic installation of dependencies and easier updates. Consult the documentation for your package manager for more information.
+
+\section{Package Managers}
+npm and Yarn are package managers for JavaScript. They are used to manage the dependencies (libraries and tools) that are required by a JavaScript project.
+
+npm (short for Node Package Manager) is the default package manager for the JavaScript runtime environment Node.js. It is included with every Node.js installation, and is used to install and manage the packages (libraries and tools) that are required by a Node.js project. npm uses a registry (a database of available packages) to manage the packages that are available for download and installation.
+
+Yarn is an alternative package manager for JavaScript that was developed by Facebook. It was created to address some of the limitations and challenges of using npm, such as slow installation times and difficulties managing multiple versions of a package. Like npm, Yarn uses a registry to manage the packages that are available for download and installation. It also includes a variety of features that make it easier to manage dependencies, such as support for lockfiles and deterministic installs.
+
+In summary, npm and Yarn are both tools that are used to manage the dependencies of a JavaScript project. They both use a registry to manage the available packages, but Yarn includes additional features that make it easier to manage dependencies and improve the performance of the installation process.
+
+
+\subsection{What is a package.json file}
+package.json is a file that is used in Node.js projects to define project metadata and specify the dependencies (libraries and tools) that are required by the project. It is typically located in the root directory of a Node.js project, and is used by the npm (Node Package Manager) to manage the project's dependencies.
+
+The package.json file is a JSON (JavaScript Object Notation) file that contains a number of properties that define the metadata and configuration of the project. Some of the key properties of the package.json file include:
+\begin{itemize}
+\item name: The name of the project.
+\item version: The version of the project.
+\item scripts: A set of scripts that can be run using the npm run or yarn run command. For example, a start script might be defined to run the main entry point of the project.
+\item dependencies: A list of the dependencies (libraries and tools) that are required by the project. These dependencies will be installed when the npm install or yarn install command is run.
+\item devDependencies: A list of the development dependencies (libraries and tools) that are required by the project, but are only needed in development (not in production). These dependencies will be installed when the npm install or yarn install command is run with the --dev flag.
+\end{itemize}
+In summary, the package.json file is a key file in a Node.js project. It defines the metadata and dependencies of the project, and is used by npm and Yarn to manage the project's dependencies.
+\section{Express}
+Express is a popular web application framework for building back-end applications with Node.js. It provides a simple and flexible way to create web servers and web applications, and includes a variety of features and tools that make it easier to develop and maintain back-end applications.
+
+Some of the key features of Express include:
+\begin{itemize}
+\item A simple, lightweight, and flexible core that makes it easy to build web applications
+A routing system that allows you to define different routes for different HTTP methods and URLs
+\item Middleware support, which allows you to define functions that are executed before or after a request is handled by a route
+Built-in support for rendering HTML templates using popular template engines like Pug and EJS
+
+\item A large ecosystem of third-party libraries and plugins that can be easily integrated into Express applications.
+\item Express is widely used for building back-end applications because of its simplicity, flexibility, and rich feature set. It provides a solid foundation for building scalable and maintainable back-end applications with Node.js.
+\end{itemize}
+
+Here is an example of a simple Express server:
+
+\begin{itemize}
+\item In order to test save the file to app.js 
+\item use yarn add express or npm install express, this should create a package.json file to track dependencies.
+\item run node app.js
+\end{itemize}
+
+\begin{lstlisting}[language=Javascript, caption=Simple Express Server]
+const express = require("express");
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
+
+app.listen(3000, () => {
+  console.log("Server listening on port 3000");
+});
+\end{lstlisting}
+
+In this example, the Express app is created using the express function, and a route is defined for the / path that sends the string "Hello, world!" as a response. The app is then set to listen for incoming requests on port 3000. When a request is received on the / path, the specified response will be sent back to the client.
+
+To add a start command to the package.json file that will run the app.js file, you can add a scripts property to the package.json file, and specify the start command as follows:
+
+\begin{lstlisting}[language=Javascript]
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    // Dependencies go here
+    "express": "^5.0.0"
+  }
+}
+\end{lstlisting}
+
+In this example, the scripts property is added to the package.json file, and the start command is defined as node app.js. This means that when the start script is run (for example, by running npm start or yarn start), the app.js file will be executed using the node command.
+
+Once the scripts property has been added to the package.json file, you can run the start script by using the npm run or yarn run command, followed by the name of the script. For example, to run the start script with npm, you can run the following command:
+
+\begin{verbatim}
+npm run start
+\end{verbatim}
+
+To create an Express server that hosts static files, you can use the express.static middleware function. This function is part of the Express framework, which is a popular web application framework for Node.js.
+
+Here is an example of how to use the express.static middleware to host static files:
+
+\begin{lstlisting}[language=Javascript, caption=Static files in express]
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
+
+\end{lstlisting}
+In this example, the express.static middleware is used to serve all files in the public directory. This means that any file in the public directory can be accessed by a client by requesting the file's path relative to the public directory. For example, if there is a file named index.html in the public directory, a client can access it by making a request to http://your-server-domain/index.html.
+
+You can also specify a different directory to serve static files from by passing the directory path as an argument to the express.static function. For example:
+
+\begin{lstlisting}[language=Javascript, nolol]
+app.use(express.static('my-static-files'));
+\end{lstlisting}
+
+This will serve all files in the my-static-files directory.
+
+It's important to note that the express.static middleware only serves static files. It does not handle dynamic requests, such as those made with a form or an AJAX request. To handle dynamic requests, you will need to use additional middleware or route handlers.
+\section{Docker}
+
+Docker is a popular platform for building, deploying, and running applications in containers. A container is a lightweight, standalone, and executable package of an application that includes everything the application needs to run, such as the code, libraries, and dependencies.
+
+Containers provide a number of benefits over traditional approaches to building and deploying applications, such as virtual machines. Some of the key benefits of using Docker and containers include:
+
+\begin{itemize}
+\item Portability: Containers are isolated from the host system and can run on any machine that has Docker installed, regardless of the host operating system or system configuration. This makes it easy to deploy and run applications on different environments, such as local development, staging, and production.
+\item Consistency: Containers provide a consistent and predictable runtime environment for applications, which helps to ensure that applications will behave the same way no matter where they are deployed. This can reduce the time and effort required to troubleshoot issues and ensure that applications are working as expected.
+\item Scalability: Containers are lightweight and can be easily scaled up or down to meet the changing needs of an application. This makes it easy to manage the resources that an application uses, and allows applications to be quickly and easily adapted to handle changes in workload or traffic.
+\item Efficiency: Containers use less resources than traditional virtual machines, which makes it possible to run more applications on the same hardware. This can help to reduce the cost and complexity of running and managing applications, and can improve the overall efficiency of an application's infrastructure.
+\end{itemize}
+In summary, Docker is a platform for building, deploying, and running applications in containers. Containers provide a number of benefits over traditional approaches, such as portability, consistency, scalability, and efficiency. This makes Docker a useful tool for building and deploying modern applications.
+
+
+Here is an example of a Dockerfile that can be used to create a Docker image for a simple Express server:
+
+\begin{lstlisting}[language=docker, caption=Dockerfile for node application]
+
+Copy code
+# Use the official Node.js 10 LTS image as the base image
+FROM node:10-lts
+
+# Create a directory for the application
+RUN mkdir -p /usr/src/app
+
+# Set the working directory to the application directory
+WORKDIR /usr/src/app
+
+# Copy the package.json and package-lock.json files to the working directory
+COPY package*.json ./
+
+# Install the dependencies
+RUN npm install
+
+# Copy the application source code to the working directory
+COPY . .
+
+# Expose port 3000 so it can be accessed from the outside
+EXPOSE 3000
+
+# Start the Express server when the container is started
+CMD ["npm", "start"]
+\end{lstlisting}
+
+Your file directory should look like
+
+\dirtree{%
+.1 /.
+.2 package.json.
+.2 package-lock.json.
+.2 app.js.
+.2 Dockerfile.
+}
+
+In this Dockerfile, the official Node.js 10 LTS image is used as the base image. The package.json and package-lock.json files are copied to the working directory and the dependencies are installed using npm. The application source code is then copied to the working directory, and port 3000 is exposed so it can be accessed from the outside. Finally, the npm start command is specified as the default command for the container, which will start the Express server when the container is started.
+
+To build a Docker image using this Dockerfile, you can run the following command from the directory where the Dockerfile is located:
+
+\begin{verbatim}
+docker build -t my-express-app .
+\end{verbatim}
+
+This will build a Docker image with the name my-express-app using the instructions in the Dockerfile. You can then run the image as a Docker container using the following command:
+
+\begin{verbatim}
+docker run -p 3000:3000 my-express-app
+\end{verbatim}
+
+This will start a Docker container based on the my-express-app image, and will map port 3000 on the host to port 3000 in the container. The Express server will start automatically when the container is started, and you will be able to access the server at http://localhost:3000.
+
+
+
+To test your knowledge please answer the following questions
+
+\label{ex:5}
+\paragraph{Question 1}
+Make a docker file that uses node 16-lts, install packages with yarn and starts the server with yarn start.
+
+See \pageref{sol:5} for the answer.
+
+
+}\cleanalldata
+

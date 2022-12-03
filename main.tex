@@ -1,0 +1,98 @@
+%with TeXLive 2019
+%it is project to http://losacademycos.com/
+%more information http://losacademycos.com/design-academycos10-1/fancybook-template/
+\documentclass[11pt,oneside]{book}%  
+\usepackage[english, activeacute]{babel}%important you can change language
+\usepackage[utf8]{inputenc}%set input encoding
+\usepackage{hyperref}
+\usepackage{fancyref}
+\usepackage{dirtree}
+
+\usepackage{fancyBook/lib/designAcademycos}
+\designacademycos{
+	root=fancyBook/, 
+	template=fancyBook,
+	download=false
+}
+\usepackage[T1]{fontenc}
+\usepackage[light,math]{kurier}%http://www.tug.dk/FontCatalogue/
+\usepackage{src/initialVariables}%you can change name, title in this file
+%\usepackage{\pathrootplugins marginsPrint}%plugins
+%\usepackage{\pathrootplugins compilationInfo}%plugins
+\datemplate{
+	indexMake=true,
+}
+\usepackage{lipsum}
+\usepackage{listings}
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, script},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+
+\lstdefinelanguage{docker}{
+  keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, ARG, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
+  keywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\renewcommand\lstlistlistingname{Code Snippets}
+\usepackage{imakeidx}
+\makeindex
+ \usepackage{setspace}
+\usepackage{biblatex}
+\addbibresource{references/bibliography.bib}
+\begin{document}
+\doublespacing
+\newcommand{\indextextit}[1]{\textit{\index{#1}}}
+%	\BgThispage %plugin  marginsPrint
+	\import{\pathtemplate/\compilefrom/themes/\namefoldertheme/}{cover.tex}%you should change the file src/initialVariables
+	\frontmatter
+		\import{\pathtemplate/\compilefrom/themes/\namefoldertheme/}{beginning.tex}
+
+		\tableofcontents
+	\mainmatter
+    \import{chapters/}{IntroToJs.tex}
+	\import{chapters/}{async.tex}
+    \import{chapters/}{node.tex}
+
+    \import{chapters/}{solutions.tex}
+%	\bibliography{references/bibliography}
+%	\bibliographystyle{unsrt}
+%	\printCompilationInfo %plugin compilationInfo
+%	\printindex %option datatemplate indexMake=true
+    \lstlistoflistings
+    \printbibliography
+    \printindex
+\end{document}
