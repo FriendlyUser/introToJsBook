@@ -1,0 +1,32 @@
+Here is an example of a JavaScript application that can interact with a Strapi instance running on localhost:1337 for the todo collection:
+
+```
+const axios = require('axios');
+
+async function getTodoList() {
+  // Send a GET request to the /todo endpoint
+  const response = await axios.get('http://localhost:1337/todo');
+
+  // Return the todo items
+  return response.data;
+}
+
+async function main() {
+  // Get the todo list
+  const todoList = await getTodoList();
+
+  // Print the todo list
+  todoList.forEach(todo => {
+    console.log(todo.title);
+    console.log(todo.description);
+    console.log(todo.status);
+    console.log();
+  });
+}
+
+main();
+```
+
+This code sends a GET request to the /todo endpoint of the Strapi server and retrieves the todo items as an array of JavaScript objects. You can modify this code to perform other operations, such as creating or updating todo items.
+
+Note: This is just a basic example to show how you can use JavaScript to interact with a Strapi server. You may need to customize the code to fit your specific needs.
